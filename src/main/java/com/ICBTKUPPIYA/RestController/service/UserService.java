@@ -45,5 +45,9 @@ public class UserService implements UserDetailsService {
         }
         return "Fail";
     }
+    public String calculateNumber(int x,int y){
+        int total = x+y;
+        return "Your answer is ".concat(String.valueOf(total));
+    }
 
 }
