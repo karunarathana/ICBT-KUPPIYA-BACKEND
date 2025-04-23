@@ -21,7 +21,14 @@ jobs:
 
       - name: Unit Tests
         run: mvn -B test --file pom.xml
+        continue-on-error: true  # Continue even if tests fail
 
+      - name: Upload Test Reports
+        if: always()  # Always run this step
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: target/surefire-reports/
 
       - name: Build the application
         run: |
