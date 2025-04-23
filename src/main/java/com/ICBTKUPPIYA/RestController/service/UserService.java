@@ -31,7 +31,7 @@ public class UserService implements UserDetailsService {
         Optional<UserEntity> byUserName = userRepo.findByUserName(username);
         System.out.println(byUserName.isPresent());
         if(!byUserName.isPresent()){
-            System.out.println("User not found");
+            System.out.println("User not found!");
             throw new UsernameNotFoundException("User not found");
         }
         return new UserPrinciple(byUserName.get());
